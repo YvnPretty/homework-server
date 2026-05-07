@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarea 1 — Métodos de Medición del Rendimiento del SO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo"><span class="logo-icon">🖥️</span><span class="logo-text">Sistemas Operativos Propietarios</span></div>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Cuadro Comparativo</a>
+      <a href="reporte.html" class="nav-link">Reporte de Instalación</a>
+      <a href="tarea1.html" class="nav-link active">Tarea 1 — Rendimiento</a>
+      <a href="tarea2.html" class="nav-link">Tarea 2 — Mantenimiento</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <span class="badge">Tarea 1</span>
+    <h1>Métodos y Técnicas para Medir el <span class="gradient-text">Rendimiento del SO</span></h1>
+    <p>Resumen sobre los principales métodos, herramientas y métricas utilizadas para evaluar el rendimiento y desempeño de un sistema operativo instalado.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <h2 class="section-title">¿Por qué medir el rendimiento?</h2>
+    <p class="section-sub">La evaluación del desempeño permite identificar cuellos de botella, optimizar recursos y garantizar la estabilidad del sistema.</p>
+
+    <div class="highlight">
+      <h4>📌 Concepto clave</h4>
+      <p>El rendimiento de un SO se mide a través de indicadores cuantitativos (métricas) y cualitativos obtenidos mediante herramientas de monitoreo, pruebas de estrés y benchmarks. El objetivo es detectar ineficiencias antes de que afecten la operación.</p>
+    </div>
+
+    <!-- Métricas principales -->
+    <h3 style="margin:2rem 0 1rem;font-size:1.1rem;">Métricas principales de rendimiento</h3>
+    <div class="report-grid">
+      <div class="report-card">
+        <h3>⚙️ Uso de CPU</h3>
+        <p>Porcentaje de tiempo que el procesador está activo. Valores sostenidos sobre el 85–90% indican saturación. Se mide en tiempo real y por proceso.</p>
+        <ul>
+          <li>% CPU total del sistema</li>
+          <li>CPU por proceso/servicio</li>
+          <li>Tiempo en modo kernel vs. usuario</li>
+          <li>Colas de procesador (processor queue)</li>
+        </ul>
+      </div>
+      <div class="report-card">
+        <h3>🧠 Uso de memoria RAM</h3>
+        <p>Cantidad de RAM disponible, en uso y el uso del archivo de paginación. El exceso de paginación (paging) degrada el rendimiento significativamente.</p>
+        <ul>
+          <li>MB disponibles vs. usados</li>
+          <li>Fallos de página por segundo</li>
+          <li>Uso del archivo de paginación</li>
+          <li>Working set por proceso</li>
+        </ul>
+      </div>
+      <div class="report-card">
+        <h3>💾 Rendimiento de disco</h3>
+        <p>Velocidad de lectura/escritura y tiempos de respuesta del almacenamiento. Determinante en servidores con BD y en operaciones I/O intensivas.</p>
+        <ul>
+          <li>MB/s de lectura y escritura</li>
+          <li>IOPS (operaciones por segundo)</li>
+          <li>Latencia de disco (ms)</li>
+          <li>% de tiempo activo del disco</li>
+        </ul>
+      </div>
+      <div class="report-card">
+        <h3>🌐 Rendimiento de red</h3>
+        <p>Tasa de transferencia, latencia y pérdida de paquetes del adaptador de red. Crítico en servidores que ofrecen servicios de red.</p>
+        <ul>
+          <li>Bytes/seg enviados y recibidos</li>
+          <li>Latencia (ping en ms)</li>
+          <li>Paquetes descartados</li>
+          <li>Ancho de banda utilizado (%)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Métodos -->
+    <h3 style="margin:2rem 0 1rem;font-size:1.1rem;">Métodos de medición</h3>
+    <div class="report-grid">
+      <div class="report-card">
+        <h3>📊 Monitoreo en tiempo real</h3>
+        <p>Observación continua de los recursos del sistema. Permite detectar problemas en el momento en que ocurren.</p>
+        <ul>
+          <li><strong>Administrador de tareas</strong> (Task Manager) — vista rápida de CPU, RAM, disco y red</li>
+          <li><strong>Monitor de recursos</strong> — detalle por proceso y servicio</li>
+          <li><strong>Monitor de rendimiento</strong> (perfmon.exe) — gráficas históricas configurables</li>
+        </ul>
+      </div>
+      <div class="report-card">
+        <h3>📈 Contadores de rendimiento</h3>
+        <p>Windows ofrece cientos de contadores de rendimiento organizados en categorías que pueden registrarse en logs para análisis posterior.</p>
+        <ul>
+          <li>Se configuran en <code>perfmon.exe</code></li>
+          <li>Exportables a CSV/BLG para análisis</li>
+          <li>Alertas automáticas por umbral</li>
+          <li>Conjuntos de recopiladores de datos</li>
+        </ul>
+      </div>
+      <div class="report-card">
+        <h3>🔬 Benchmarking</h3>
+        <p>Pruebas estandarizadas que comparan el rendimiento del sistema contra referencias conocidas o versiones anteriores.</p>
+        <ul>
+          <li><strong>CrystalDiskMark</strong> — velocidad de disco</li>
+          <li><strong>Cinebench</strong> — rendimiento de CPU</li>
+          <li><strong>MemTest86</strong> — estabilidad de RAM</li>
+          <li><strong>PCMark</strong> — rendimiento general del sistema</li>
+        </ul>
+      </div>
+      <div class="report-card">
+        <h3>💥 Pruebas de estrés</h3>
+        <p>Se somete al sistema a cargas máximas durante un período para identificar límites y comportamiento bajo presión extrema.</p>
+        <ul>
+          <li><strong>Prime95</strong> — estrés de CPU y RAM</li>
+          <li><strong>FurMark</strong> — estrés de GPU</li>
+          <li><strong>IOMeter</strong> — estrés de almacenamiento</li>
+          <li><strong>AIDA64</strong> — estrés integral del sistema</li>
+        </ul>
+      </div>
+      <div class="report-card">
+        <h3>📋 Análisis de registros (Logs)</h3>
+        <p>Revisión de los registros del sistema para identificar errores, advertencias y eventos que afectan el rendimiento.</p>
+        <ul>
+          <li>Visor de eventos (Event Viewer)</li>
+          <li>Logs del sistema y de aplicaciones</li>
+          <li>Registros de seguridad</li>
+          <li>Análisis de errores críticos</li>
+        </ul>
+      </div>
+      <div class="report-card">
+        <h3>🔍 Diagnóstico de Windows</h3>
+        <p>Herramientas nativas que evalúan el sistema automáticamente e identifican cuellos de botella.</p>
+        <ul>
+          <li><strong>WinSAT</strong> — Índice de experiencia de Windows</li>
+          <li><strong>Reliability Monitor</strong> — historial de estabilidad</li>
+          <li><strong>Resource Monitor</strong> — uso detallado de recursos</li>
+          <li><strong>Process Explorer</strong> (Sysinternals)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Indicadores de rendimiento aceptable -->
+    <h3 style="margin:2rem 0 1rem;font-size:1.1rem;">Indicadores de rendimiento aceptable (referencia)</h3>
+    <div class="table-wrapper">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Métrica</th>
+            <th>Óptimo</th>
+            <th>Aceptable</th>
+            <th>Crítico</th>
+            <th>Acción recomendada</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Uso de CPU</strong></td>
+            <td style="color:var(--green)">0–40%</td>
+            <td style="color:var(--yellow)">40–75%</td>
+            <td style="color:var(--red)">+85% sostenido</td>
+            <td>Revisar procesos, escalar CPU</td>
+          </tr>
+          <tr>
+            <td><strong>Uso de RAM</strong></td>
+            <td style="color:var(--green)">&lt;60%</td>
+            <td style="color:var(--yellow)">60–80%</td>
+            <td style="color:var(--red)">+90%</td>
+            <td>Ampliar RAM, optimizar servicios</td>
+          </tr>
+          <tr>
+            <td><strong>Latencia de disco</strong></td>
+            <td style="color:var(--green)">&lt;5 ms</td>
+            <td style="color:var(--yellow)">5–20 ms</td>
+            <td style="color:var(--red)">+50 ms</td>
+            <td>Revisar disco, migrar a SSD</td>
+          </tr>
+          <tr>
+            <td><strong>Uso de disco</strong></td>
+            <td style="color:var(--green)">&lt;50%</td>
+            <td style="color:var(--yellow)">50–80%</td>
+            <td style="color:var(--red)">+90% constante</td>
+            <td>Revisar I/O, ampliar almacenamiento</td>
+          </tr>
+          <tr>
+            <td><strong>Paquetes perdidos (red)</strong></td>
+            <td style="color:var(--green)">0%</td>
+            <td style="color:var(--yellow)">0–1%</td>
+            <td style="color:var(--red)">+2%</td>
+            <td>Revisar switch, cable o NIC</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="highlight" style="margin-top:2rem;">
+      <h4>✅ Conclusión</h4>
+      <p>La medición sistemática del rendimiento, combinando monitoreo continuo, benchmarks y análisis de logs, permite mantener el sistema operativo funcionando de manera eficiente, detectar problemas antes de que escalen y planificar actualizaciones de hardware o software con base en datos reales.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <p>Tarea 1 — Métodos de Medición del Rendimiento &nbsp;|&nbsp; Elaborado con fines académicos</p>
+</footer>
+</body>
+</html>

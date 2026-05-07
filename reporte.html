@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reporte de Instalación — Windows Server 2019 y Windows 10</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .img-evidence {
+    width: 100%; max-width: 780px; display: block;
+    border-radius: 10px; border: 1px solid var(--border);
+    margin: 1rem 0 .4rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,.5);
+    transition: transform .2s;
+    cursor: zoom-in;
+  }
+  .img-evidence:hover { transform: scale(1.01); }
+  .img-caption {
+    font-size: .78rem; color: var(--text-muted);
+    margin-bottom: 1rem; padding-left: .3rem;
+    border-left: 2px solid var(--accent2); padding-left: .7rem;
+  }
+  .step-list li { padding-top: 1.1rem; padding-bottom: 1rem; }
+  .step-list li strong { margin-bottom: .4rem; }
+  .step-list li span { display: block; margin-bottom: .5rem; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo"><span class="logo-icon">🖥️</span><span class="logo-text">Sistemas Operativos Propietarios</span></div>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Cuadro Comparativo</a>
+      <a href="reporte.html" class="nav-link active">Reporte de Instalación</a>
+      <a href="tarea1.html" class="nav-link">Tarea 1 — Rendimiento</a>
+      <a href="tarea2.html" class="nav-link">Tarea 2 — Mantenimiento</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <span class="badge">Reporte de Instalación</span>
+    <h1>Instalación de <span class="gradient-text">Windows Server 2019</span> y Windows 10</h1>
+    <p>Procedimiento completo con evidencias de instalación, configuración de red, Active Directory, DHCP y conexión de clientes al dominio. Realizado en VirtualBox.</p>
+  </div>
+</section>
+
+<!-- ====== WINDOWS SERVER 2019 ====== -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">🖧 Parte 1 — Windows Server 2019</h2>
+    <p class="section-sub">Instalación base, configuración inicial y servicios de red</p>
+
+    <!-- Requerimientos -->
+    <h3 style="margin-bottom:1rem;font-size:1.1rem;">1.1 Requerimientos del sistema</h3>
+    <div class="info-grid">
+      <div class="info-box"><div class="label">Procesador</div><div class="value">64-bit ≥ 1.4 GHz</div></div>
+      <div class="info-box"><div class="label">Memoria RAM</div><div class="value">2 GB mínimo (VirtualBox: 2 GB asignados)</div></div>
+      <div class="info-box"><div class="label">Almacenamiento</div><div class="value">32 GB mínimo (VirtualBox: 50 GB)</div></div>
+      <div class="info-box"><div class="label">Red</div><div class="value">Adaptador puente (Bridge) en VirtualBox</div></div>
+      <div class="info-box"><div class="label">ISO utilizada</div><div class="value">17763.3650 Server 2019 Eval x64</div></div>
+      <div class="info-box"><div class="label">Nombre del servidor</div><div class="value">Bobsponja / HOTEL.CLANDESTINO</div></div>
+    </div>
+
+    <!-- Instalación base -->
+    <h3 style="margin:2rem 0 .5rem;font-size:1.1rem;">1.2 Instalación base y primer arranque</h3>
+    <ol class="step-list">
+      <li>
+        <strong>Instalación de archivos del sistema operativo</strong>
+        <span>Se montó la ISO en VirtualBox y se inició la instalación. El asistente copió los archivos del sistema (Copying Windows files 0%).</span>
+        <img class="img-evidence" src="imgs/1000000100000780000004383FCE47A1.png" alt="Installing Windows - Copying files">
+        <div class="img-caption">Evidencia: pantalla "Installing Windows" — copiando archivos del sistema operativo.</div>
+      </li>
+      <li>
+        <strong>Primer arranque del sistema</strong>
+        <span>Tras la instalación, Windows Server 2019 arrancó por primera vez mostrando el logo de Windows en pantalla negra.</span>
+        <img class="img-evidence" src="imgs/1000000100000780000004386A10F4F0.png" alt="Primer arranque Windows Server">
+        <div class="img-caption">Evidencia: primer arranque de Windows Server 2019 en VirtualBox.</div>
+      </li>
+      <li>
+        <strong>Escritorio y Server Manager inicial</strong>
+        <span>Al iniciar sesión con el usuario Administrador, se cargó el escritorio y el Server Manager con un único rol (File and Storage Services).</span>
+        <img class="img-evidence" src="imgs/100000010000078000000438E5E10E40.png" alt="Server Manager inicial">
+        <div class="img-caption">Evidencia: Server Manager mostrando el dashboard inicial con solo el rol base instalado.</div>
+      </li>
+    </ol>
+
+    <!-- Configuración inicial -->
+    <h3 style="margin:2rem 0 .5rem;font-size:1.1rem;">1.3 Configuración inicial del sistema</h3>
+    <ol class="step-list">
+      <li>
+        <strong>Cambio de nombre del equipo y reinicio</strong>
+        <span>Desde las propiedades del sistema se cambió el nombre del equipo a <code>Bobsponja</code>. El sistema solicitó reiniciar para aplicar los cambios.</span>
+        <img class="img-evidence" src="imgs/1000000100000780000004385AEEE78B.png" alt="Cambio de nombre del equipo">
+        <div class="img-caption">Evidencia: diálogo "Computer Name/Domain Changes" con el nombre <em>Bobsponja</em> y mensaje de reinicio requerido.</div>
+      </li>
+      <li>
+        <strong>Applying computer settings tras reinicio</strong>
+        <span>El servidor aplicó la configuración del equipo al reiniciar después del cambio de nombre.</span>
+        <img class="img-evidence" src="imgs/1000000100000780000004388AF2F88E.png" alt="Applying computer settings">
+        <div class="img-caption">Evidencia: pantalla "Applying computer settings" tras renombrar el servidor.</div>
+      </li>
+    </ol>
+
+    <!-- Configuración de red -->
+    <h3 style="margin:2rem 0 .5rem;font-size:1.1rem;">1.4 Configuración de parámetros de red</h3>
+    <div class="highlight">
+      <h4>⚠️ Importante: el servidor debe tener IP fija</h4>
+      <p>Nunca usar DHCP para el servidor. Se asignó IP estática antes de instalar roles de red.</p>
+    </div>
+    <ol class="step-list">
+      <li>
+        <strong>Configurar adaptador de red en VirtualBox</strong>
+        <span>En la configuración de la VM → Red → Adaptador puente conectado a la interfaz física <code>wlp1s0</code> para estar en la misma red que el host.</span>
+        <img class="img-evidence" src="imgs/100000010000078000000438C0362F77.png" alt="Configuración red VirtualBox">
+        <div class="img-caption">Evidencia: configuración de red en VirtualBox — Adaptador puente en <code>wlp1s0</code>.</div>
+      </li>
+      <li>
+        <strong>Propiedades del adaptador Ethernet (TCP/IPv4)</strong>
+        <span>Se abrió la ventana de propiedades del adaptador de red y se seleccionó el protocolo IPv4. Se observó que IPv6 se dejó deshabilitado para simplificar la configuración.</span>
+        <img class="img-evidence" src="imgs/1000000100000780000004386519E5E5.png" alt="Propiedades Ethernet IPv4">
+        <div class="img-caption">Evidencia: propiedades del adaptador Ethernet — selección del protocolo TCP/IPv4.</div>
+      </li>
+      <li>
+        <strong>IP estática asignada al servidor</strong>
+        <span>Se configuró: IP: <code>192.168.1.69</code>, máscara <code>255.255.255.0</code>, puerta de enlace <code>192.168.1.254</code>, DNS preferido <code>192.168.1.69</code> (propio servidor).</span>
+        <img class="img-evidence" src="imgs/10000001000007800000043880BA919B.png" alt="IPv4 estática configurada">
+        <div class="img-caption">Evidencia: propiedades TCP/IPv4 con IP estática <code>192.168.1.69</code> y DNS apuntando al propio servidor.</div>
+      </li>
+      <li>
+        <strong>Verificación con IPCONFIG</strong>
+        <span>Desde CMD se ejecutó <code>IPCONFIG</code> para confirmar la IP asignada. Se verificó tanto la IP original (<code>10.0.2.15</code>) como la nueva configuración estática (<code>192.168.1.69</code>).</span>
+        <img class="img-evidence" src="imgs/100000010000078000000438C27A1CD2.png" alt="IPCONFIG verificación">
+        <div class="img-caption">Evidencia: resultado de <code>IPCONFIG</code> mostrando la configuración de red del servidor.</div>
+      </li>
+    </ol>
+
+    <!-- Active Directory -->
+    <h3 style="margin:2rem 0 .5rem;font-size:1.1rem;">1.5 Instalación y configuración de Active Directory (AD DS)</h3>
+    <ol class="step-list">
+      <li>
+        <strong>Asistente de Agregar Roles — "Before You Begin"</strong>
+        <span>Se abrió el asistente de agregar roles desde Server Manager. La pantalla inicial indica los prerequisitos previos a la instalación.</span>
+        <img class="img-evidence" src="imgs/10000001000007800000043896BD0E21.png" alt="Before You Begin">
+        <div class="img-caption">Evidencia: asistente "Add Roles and Features" — pantalla inicial "Before you begin".</div>
+      </li>
+      <li>
+        <strong>Selección del rol AD DS — primer intento</strong>
+        <span>Se marcaron los roles: Active Directory Domain Services, DHCP Server y DNS Server desde el asistente "Add Roles and Features".</span>
+        <img class="img-evidence" src="imgs/1000000100000780000004389F5FFCC9.png" alt="Selección roles Server Roles">
+        <div class="img-caption">Evidencia: primera vista de selección de roles del servidor — AD DS, DHCP y DNS marcados.</div>
+      </li>
+      <li>
+        <strong>Selección final de roles — vista con DNS Server resaltado</strong>
+        <span>Se confirmó la selección marcando Active Directory Domain Services, DHCP Server y DNS Server. Al seleccionar AD DS, apareció el diálogo para agregar las herramientas de gestión requeridas.</span>
+        <img class="img-evidence" src="imgs/100000010000078000000438E6CA8491.png" alt="Selección roles AD DS, DHCP, DNS">
+        <div class="img-caption">Evidencia: selección de roles — DNS Server resaltado con AD DS y DHCP Server marcados.</div>
+      </li>
+      <li>
+        <strong>Confirmación de features adicionales para AD DS</strong>
+        <span>El asistente solicitó agregar las herramientas de administración de AD DS incluyendo Group Policy Management, AD DS Tools y Active Directory Administrative Center.</span>
+        <img class="img-evidence" src="imgs/100000010000078000000438E6CA8491.png" alt="Add features AD DS">
+        <div class="img-caption">Evidencia: diálogo para agregar features requeridas por Active Directory Domain Services.</div>
+      </li>
+      <li>
+        <strong>Progreso de instalación de roles</strong>
+        <span>Se instalaron los roles: Active Directory Domain Services, DHCP Server, DNS Server y las herramientas de administración asociadas.</span>
+        <img class="img-evidence" src="imgs/100000010000078000000438E706A615.png" alt="Installation progress roles">
+        <div class="img-caption">Evidencia: progreso de instalación mostrando AD DS, DHCP Server y DNS Server en proceso.</div>
+      </li>
+      <li>
+        <strong>Deployment Configuration — "Add a new forest" con nombre de dominio</strong>
+        <span>Tras instalar el rol, se inició el asistente de configuración de AD DS. Se seleccionó <strong>"Add a new forest"</strong> y se especificó el nombre del dominio raíz: <code>HOTEL.CLANDESTINO</code>.</span>
+        <img class="img-evidence" src="imgs/100000010000078000000438FB2A3AB0.png" alt="Deployment Configuration Add new forest HOTEL.CLANDESTINO">
+        <div class="img-caption">Evidencia: asistente AD DS — "Add a new forest" con Root domain name: <code>HOTEL.CLANDESTINO</code>.</div>
+      </li>
+      <li>
+        <strong>Deployment Configuration — modo alternativo (agregar DC a dominio existente)</strong>
+        <span>También se exploró la opción de agregar un controlador de dominio a un dominio ya existente para comprender las diferencias entre ambas opciones de despliegue.</span>
+        <img class="img-evidence" src="imgs/100000010000078000000438ABF3F0D7.png" alt="Deployment Configuration add DC to existing domain">
+        <div class="img-caption">Evidencia: asistente de configuración AD DS — opción "Add a domain controller to an existing domain".</div>
+      </li>
+      <li>
+        <strong>Domain Controller Options — contraseña DSRM</strong>
+        <span>Se configuraron las opciones del controlador de dominio: nivel funcional Windows Server 2016, DNS y Global Catalog habilitados. Se estableció la contraseña de modo de restauración (DSRM).</span>
+        <img class="img-evidence" src="imgs/1000000100000780000004389953C7D0.png" alt="Domain Controller Options DSRM">
+        <div class="img-caption">Evidencia: opciones del DC — nivel funcional Windows Server 2016 y contraseña DSRM configurada.</div>
+      </li>
+      <li>
+        <strong>Additional Options — nombre NetBIOS</strong>
+        <span>Se verificó el nombre NetBIOS del dominio: <code>HOTEL</code>, correspondiente al dominio <code>HOTEL.CLANDESTINO</code>.</span>
+        <img class="img-evidence" src="imgs/10000001000007800000043801A2AC50.png" alt="NetBIOS domain name">
+        <div class="img-caption">Evidencia: opciones adicionales — nombre NetBIOS del dominio asignado como <code>HOTEL</code>.</div>
+      </li>
+      <li>
+        <strong>Prerequisites Check — todo correcto</strong>
+        <span>La verificación de prerequisitos pasó exitosamente. El sistema mostró "All prerequisite checks passed successfully" con algunas advertencias informativas sobre criptografía.</span>
+        <img class="img-evidence" src="imgs/1000000100000780000004386C834567.png" alt="Prerequisites Check passed">
+        <div class="img-caption">Evidencia: verificación de prerequisitos completada exitosamente — listo para instalar.</div>
+      </li>
+    </ol>
+
+    <!-- AD verificación -->
+    <h3 style="margin:2rem 0 .5rem;font-size:1.1rem;">1.6 Verificación de Active Directory y estructura de dominio</h3>
+    <ol class="step-list">
+      <li>
+        <strong>Usuarios y equipos de AD — estructura del dominio</strong>
+        <span>Se abrió la consola "Active Directory Users and Computers" confirmando que el dominio <code>HOTEL.CLANDESTINO</code> fue creado correctamente con sus contenedores predeterminados.</span>
+        <img class="img-evidence" src="imgs/100000010000078000000438BE0A6134.png" alt="AD Users and Computers">
+        <div class="img-caption">Evidencia: consola AD Users and Computers mostrando el dominio <code>HOTEL.CLANDESTINO</code>.</div>
+      </li>
+      <li>
+        <strong>Dashboard con roles AD DS, DHCP y DNS activos</strong>
+        <span>El Server Manager muestra los 4 roles instalados y funcionando: AD DS, DHCP, DNS y File and Storage Services.</span>
+        <img class="img-evidence" src="imgs/100000010000078000000438A69D170C.png" alt="Server Manager 4 roles activos">
+        <div class="img-caption">Evidencia: Server Manager Dashboard con AD DS, DHCP, DNS y File Services activos (verde).</div>
+      </li>
+    </ol>
+
+    <!-- Cuentas de usuario -->
+    <h3 style="margin:2rem 0 .5rem;font-size:1.1rem;">1.7 Creación de cuentas de usuario en AD</h3>
+    <ol class="step-list">
+      <li>
+        <strong>Crear usuario ARENITA</strong>
+        <span>Se creó el usuario <code>ARENITA</code> con nombre de inicio de sesión <code>arenitaxd@HOTEL.CLANDESTINO</code> en la OU Users del dominio.</span>
+        <img class="img-evidence" src="imgs/1000000100000780000004388639E29B.png" alt="Crear usuario ARENITA">
+        <div class="img-caption">Evidencia: formulario "New Object - User" creando el usuario <em>ARENITA</em>.</div>
+      </li>
+      <li>
+        <strong>Crear usuario ELVENUDO</strong>
+        <span>Se creó el usuario <code>ELVENUDO</code> con nombre de inicio de sesión <code>elvenudoxd@HOTEL.CLANDESTINO</code>.</span>
+        <img class="img-evidence" src="imgs/1000000100000780000004380032C0A0.png" alt="Crear usuario ELVENUDO">
+        <div class="img-caption">Evidencia: formulario "New Object - User" creando el usuario <em>ELVENUDO</em>.</div>
+      </li>
+      <li>
+        <strong>Grupo SELACOMEN — miembros del dominio</strong>
+        <span>Se creó el grupo de seguridad <code>SELACOMEN</code> con alcance "Domain local" y se agregaron los usuarios <code>ARENITA</code>, <code>ELVENUDO</code> y <code>GARY</code> como miembros.</span>
+        <img class="img-evidence" src="imgs/1000000100000780000004387CC7D88C.png" alt="Grupo SELACOMEN miembros">
+        <div class="img-caption">Evidencia: propiedades del grupo <em>SELACOMEN</em> con miembros ARENITA, ELVENUDO y GARY.</div>
+      </li>
+      <li>
+        <strong>Propiedades del grupo SELACOMEN</strong>
+        <span>Vista general del grupo SELACOMEN mostrando su tipo (Security) y ámbito (Domain local) dentro del dominio HOTEL.CLANDESTINO.</span>
+        <img class="img-evidence" src="imgs/100000010000078000000438DE501739.png" alt="Propiedades grupo SELACOMEN">
+        <div class="img-caption">Evidencia: propiedades generales del grupo de seguridad <em>SELACOMEN</em>.</div>
+      </li>
+    </ol>
+
+    <!-- DNS -->
+    <h3 style="margin:2rem 0 .5rem;font-size:1.1rem;">1.8 Configuración del servidor DNS</h3>
+    <ol class="step-list">
+      <li>
+        <strong>Asistente "New Zone Wizard"</strong>
+        <span>Se creó una nueva zona de búsqueda inversa en el DNS Manager para la red <code>192.168.1.x</code>.</span>
+        <img class="img-evidence" src="imgs/1000000100000780000004381E885359.png" alt="New Zone Wizard DNS">
+        <div class="img-caption">Evidencia: asistente "New Zone Wizard" — bienvenida para crear nueva zona DNS.</div>
+      </li>
+      <li>
+        <strong>Reverse Lookup Zone Name</strong>
+        <span>Se configuró el ID de red <code>192.168.1</code> para la zona de búsqueda inversa, generando automáticamente la zona <code>1.168.192.in-addr.arpa</code>.</span>
+        <img class="img-evidence" src="imgs/10000001000007800000043841965149.png" alt="Reverse Lookup Zone">
+        <div class="img-caption">Evidencia: configuración de zona de búsqueda inversa con ID de red <code>192.168.1</code>.</div>
+      </li>
+      <li>
+        <strong>Zona inversa creada y activa</strong>
+        <span>El DNS Manager muestra la zona inversa <code>1.168.192.in-addr.arpa</code> como Active Directory-Integrated y en estado Running.</span>
+        <img class="img-evidence" src="imgs/100000010000078000000438D8FC1F52.png" alt="DNS Reverse Zone activa">
+        <div class="img-caption">Evidencia: DNS Manager mostrando la zona de búsqueda inversa activa e integrada con AD.</div>
+      </li>
+    </ol>
+
+    <!-- Verificación cliente desde Linux -->
+    <h3 style="margin:2rem 0 .5rem;font-size:1.1rem;">1.9 Verificación de conectividad y recursos compartidos</h3>
+    <ol class="step-list">
+      <li>
+        <strong>Ping desde host Linux al servidor</strong>
+        <span>Desde la máquina host (Linux) se realizó un ping de 4 paquetes a la IP del servidor <code>192.168.1.86</code>. Resultado: 0% pérdida de paquetes, tiempo promedio &lt;1ms.</span>
+        <img class="img-evidence" src="imgs/100000010000073E0000041810ED0380.png" alt="Ping al servidor desde Linux">
+        <div class="img-caption">Evidencia: ping exitoso de 4 paquetes a <code>192.168.1.86</code> desde el host Linux (0% packet loss).</div>
+      </li>
+      <li>
+        <strong>Ping + listado de recursos compartidos (vista combinada)</strong>
+        <span>Vista de la terminal mostrando el ping exitoso al servidor y el resultado del comando <code>smbclient -L //192.168.1.86</code> con los shares ADMIN$, C$, NETLOGON, SYSVOL y carpetas del dominio.</span>
+        <img class="img-evidence" src="imgs/100000010000073E0000041810CE0B90.png" alt="Terminal ping y smbclient combinados">
+        <div class="img-caption">Evidencia: terminal del host Linux mostrando ping y smbclient ejecutados consecutivamente.</div>
+      </li>
+      <li>
+        <strong>Recursos compartidos del servidor — detalle (smbclient)</strong>
+        <span>Se listaron los recursos compartidos del servidor usando <code>smbclient -L //192.168.1.86</code>. Se confirmaron los shares del dominio: ADMIN$, C$, NETLOGON, SYSVOL y carpetas del dominio <code>BYTE.FORCE</code>.</span>
+        <img class="img-evidence" src="imgs/100000010000073E00000418846E8632.png" alt="smbclient shares del servidor">
+        <div class="img-caption">Evidencia: listado completo de recursos compartidos del servidor de dominio desde Linux con smbclient.</div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ====== WINDOWS 10 ====== -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <h2 class="section-title">🪟 Parte 2 — Instalación de Windows 10 y conexión al dominio</h2>
+    <p class="section-sub">Instalación del cliente Windows 10 y unión al dominio HOTEL.CLANDESTINO</p>
+
+    <ol class="step-list">
+      <li>
+        <strong>Instalación de Windows 10</strong>
+        <span>Se instaló Windows 10 en una segunda VM de VirtualBox. Tras la instalación, el sistema arrancó al escritorio mostrando el logo de Windows.</span>
+        <img class="img-evidence" src="imgs/1000000100000780000004389024447B.png" alt="Escritorio Windows 10 instalado">
+        <div class="img-caption">Evidencia: escritorio de Windows 10 recién instalado en VirtualBox.</div>
+      </li>
+      <li>
+        <strong>Cambio de nombre y unión al dominio</strong>
+        <span>Desde las propiedades del sistema del cliente (WINVOL2), se cambió el nombre a <code>Bobsponja</code> y se inició el proceso de unión al dominio <code>HOTEL.CLANDESTINO</code>.</span>
+        <img class="img-evidence" src="imgs/1000000100000780000004385AEEE78B.png" alt="Unión al dominio Windows 10">
+        <div class="img-caption">Evidencia: propiedades del sistema del cliente — proceso de unión al dominio del servidor.</div>
+      </li>
+      <li>
+        <strong>Configuración de IP del cliente (TCP/IPv4)</strong>
+        <span>Se configuró la IP estática del cliente: <code>192.168.1.69</code>, máscara <code>255.255.255.0</code>, gateway <code>192.168.1.254</code> y DNS apuntando al servidor del dominio.</span>
+        <img class="img-evidence" src="imgs/10000001000007800000043880BA919B.png" alt="IP estática cliente Windows 10">
+        <div class="img-caption">Evidencia: configuración TCP/IPv4 del cliente con IP estática y DNS del servidor de dominio.</div>
+      </li>
+      <li>
+        <strong>Verificación de IPCONFIG en el cliente</strong>
+        <span>Desde el CMD del cliente Windows 10 se ejecutó <code>IPCONFIG</code> para verificar la configuración de red y confirmar la conectividad con el servidor.</span>
+        <img class="img-evidence" src="imgs/100000010000078000000438C27A1CD2.png" alt="IPCONFIG cliente">
+        <div class="img-caption">Evidencia: resultado de IPCONFIG en el cliente mostrando la configuración de red activa.</div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>Reporte de Instalación — Sistemas Operativos Propietarios &nbsp;|&nbsp; Elaborado con fines académicos</p>
+</footer>
+
+</body>
+</html>

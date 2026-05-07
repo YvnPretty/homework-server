@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistemas Operativos Propietarios — Práctica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-icon">🖥️</span>
+      <span class="logo-text">Sistemas Operativos Propietarios</span>
+    </div>
+    <nav class="nav">
+      <a href="index.html" class="nav-link active">Cuadro Comparativo</a>
+      <a href="reporte.html" class="nav-link">Reporte de Instalación</a>
+      <a href="tarea1.html" class="nav-link">Tarea 1 — Rendimiento</a>
+      <a href="tarea2.html" class="nav-link">Tarea 2 — Mantenimiento</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="badge">Cuadro Comparativo Digital</span>
+    <h1>Sistemas Operativos <span class="gradient-text">Propietarios</span> Vigentes</h1>
+    <p>Comparativa de características y requerimientos de instalación de los principales sistemas operativos propietarios del mercado actual.</p>
+  </div>
+  <div class="hero-cards">
+    <div class="mini-card"><span>🪟</span> Windows 11</div>
+    <div class="mini-card"><span>🪟</span> Windows 10</div>
+    <div class="mini-card"><span>🖧</span> Server 2019</div>
+    <div class="mini-card"><span>🍎</span> macOS</div>
+  </div>
+</section>
+
+<!-- TABLA COMPARATIVA -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Cuadro Comparativo</h2>
+    <p class="section-sub">Análisis detallado de los sistemas operativos propietarios vigentes</p>
+
+    <div class="table-wrapper">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Sistema Operativo</th>
+            <th>Desarrollador</th>
+            <th>Licencia</th>
+            <th>Uso Principal</th>
+            <th>Versión Actual</th>
+            <th>Costo aprox.</th>
+            <th>Requerimientos de Instalación</th>
+            <th>Ventajas</th>
+            <th>Desventajas</th>
+            <th>Seguridad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Windows 11 Pro -->
+          <tr class="row-win11">
+            <td><div class="os-name"><span class="os-icon">🪟</span><div><strong>Windows 11 Pro</strong><span class="os-tag">Desktop</span></div></div></td>
+            <td><span class="dev-badge ms">Microsoft</span></td>
+            <td><span class="lic-badge">Propietaria / Comercial</span></td>
+            <td>Equipos de escritorio, portátiles y entornos empresariales</td>
+            <td>24H2 (2024)</td>
+            <td>~$199 USD</td>
+            <td>
+              <ul class="req-list">
+                <li>CPU 64-bit ≥ 1 GHz (2 núcleos)</li>
+                <li>RAM: 4 GB mínimo</li>
+                <li>Almacenamiento: 64 GB</li>
+                <li>UEFI + Arranque seguro</li>
+                <li>TPM 2.0 requerido</li>
+                <li>DirectX 12 / WDDM 2.0</li>
+                <li>Pantalla HD 720p+</li>
+              </ul>
+            </td>
+            <td>
+              <ul class="feat-list green">
+                <li>Interfaz moderna y fluida</li>
+                <li>Compatibilidad Android apps</li>
+                <li>Seguridad avanzada (TPM)</li>
+                <li>Actualizaciones automáticas</li>
+              </ul>
+            </td>
+            <td>
+              <ul class="feat-list red">
+                <li>Requiere hardware reciente</li>
+                <li>Telemetría y privacidad cuestionada</li>
+                <li>Costo de licencia elevado</li>
+              </ul>
+            </td>
+            <td><span class="sec-badge high">Alta</span></td>
+          </tr>
+
+          <!-- Windows 10 Pro -->
+          <tr class="row-win10">
+            <td><div class="os-name"><span class="os-icon">🪟</span><div><strong>Windows 10 Pro</strong><span class="os-tag">Desktop</span></div></div></td>
+            <td><span class="dev-badge ms">Microsoft</span></td>
+            <td><span class="lic-badge">Propietaria / Comercial</span></td>
+            <td>Equipos de escritorio y estaciones de trabajo</td>
+            <td>22H2 (LTSC 2025)</td>
+            <td>~$139 USD</td>
+            <td>
+              <ul class="req-list">
+                <li>CPU: 1 GHz o superior</li>
+                <li>RAM: 1 GB (32-bit) / 2 GB (64-bit)</li>
+                <li>Almacenamiento: 32 GB</li>
+                <li>Tarjeta gráfica DirectX 9</li>
+                <li>Resolución 800×600</li>
+              </ul>
+            </td>
+            <td>
+              <ul class="feat-list green">
+                <li>Compatible con hardware antiguo</li>
+                <li>Amplio soporte de software</li>
+                <li>Interfaz familiar y estable</li>
+                <li>Soporte empresarial extendido</li>
+              </ul>
+            </td>
+            <td>
+              <ul class="feat-list red">
+                <li>Fin de soporte: Oct 2025</li>
+                <li>Menor seguridad que Win 11</li>
+                <li>Actualizaciones forzadas</li>
+              </ul>
+            </td>
+            <td><span class="sec-badge med">Media</span></td>
+          </tr>
+
+          <!-- Windows Server 2019 -->
+          <tr class="row-server">
+            <td><div class="os-name"><span class="os-icon">🖧</span><div><strong>Windows Server 2019</strong><span class="os-tag">Servidor</span></div></div></td>
+            <td><span class="dev-badge ms">Microsoft</span></td>
+            <td><span class="lic-badge">Propietaria / Comercial</span></td>
+            <td>Administración de servidores, servicios de red, Active Directory y dominio</td>
+            <td>1809 (LTSC)</td>
+            <td>~$501–$6,155 USD</td>
+            <td>
+              <ul class="req-list">
+                <li>CPU 64-bit ≥ 1.4 GHz</li>
+                <li>RAM: mínimo 2 GB (recomendado 16 GB)</li>
+                <li>Almacenamiento: 32 GB</li>
+                <li>Adaptador de red Gigabit</li>
+                <li>Firmware UEFI compatible</li>
+              </ul>
+            </td>
+            <td>
+              <ul class="feat-list green">
+                <li>Active Directory robusto</li>
+                <li>Hyper-V integrado</li>
+                <li>Alta disponibilidad (clustering)</li>
+                <li>Soporte LTSC hasta 2029</li>
+              </ul>
+            </td>
+            <td>
+              <ul class="feat-list red">
+                <li>Costo de licenciamiento alto</li>
+                <li>Requiere conocimientos especializados</li>
+                <li>Consumo elevado de recursos</li>
+              </ul>
+            </td>
+            <td><span class="sec-badge high">Alta</span></td>
+          </tr>
+
+          <!-- macOS -->
+          <tr class="row-macos">
+            <td><div class="os-name"><span class="os-icon">🍎</span><div><strong>macOS Sequoia</strong><span class="os-tag">Desktop</span></div></div></td>
+            <td><span class="dev-badge apple">Apple</span></td>
+            <td><span class="lic-badge">Propietaria (OEM)</span></td>
+            <td>Computadoras Mac para uso personal, académico y profesional (diseño, multimedia)</td>
+            <td>15 Sequoia (2024)</td>
+            <td>Gratuita (requiere Mac)</td>
+            <td>
+              <ul class="req-list">
+                <li>Equipo Mac compatible (Apple Silicon o Intel)</li>
+                <li>RAM: 8 GB mínimo</li>
+                <li>Almacenamiento: 60 GB libres</li>
+                <li>Conexión a internet para actualizar</li>
+                <li>ID de Apple recomendada</li>
+              </ul>
+            </td>
+            <td>
+              <ul class="feat-list green">
+                <li>Ecosistema Apple integrado</li>
+                <li>Excelente rendimiento en Apple Silicon</li>
+                <li>Alta seguridad y privacidad</li>
+                <li>Actualizaciones gratuitas</li>
+              </ul>
+            </td>
+            <td>
+              <ul class="feat-list red">
+                <li>Solo para hardware Apple</li>
+                <li>Costo elevado del hardware</li>
+                <li>Compatibilidad limitada con software empresarial</li>
+              </ul>
+            </td>
+            <td><span class="sec-badge high">Alta</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="table-note">📝 <strong>Nota:</strong> Los costos son aproximados y pueden variar según canal de compra, licenciamiento por volumen o modalidad de suscripción (Microsoft 365, Apple Business). Se recomienda verificar precios oficiales actualizados.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>Práctica — Sistemas Operativos Propietarios &nbsp;|&nbsp; Elaborado con fines académicos</p>
+</footer>
+
+</body>
+</html>

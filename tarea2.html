@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarea 2 — Políticas de Mantenimiento y Recuperación ante Fallos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo"><span class="logo-icon">🖥️</span><span class="logo-text">Sistemas Operativos Propietarios</span></div>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Cuadro Comparativo</a>
+      <a href="reporte.html" class="nav-link">Reporte de Instalación</a>
+      <a href="tarea1.html" class="nav-link">Tarea 1 — Rendimiento</a>
+      <a href="tarea2.html" class="nav-link active">Tarea 2 — Mantenimiento</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <span class="badge">Tarea 2</span>
+    <h1>Políticas de Mantenimiento y <span class="gradient-text">Recuperación ante Fallos</span></h1>
+    <p>Resumen sobre las políticas, procedimientos de mantenimiento preventivo y correctivo, y las estrategias de recuperación ante fallos en sistemas operativos Windows Server y Windows 10.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Tipos de mantenimiento -->
+    <h2 class="section-title">Tipos de Mantenimiento</h2>
+    <p class="section-sub">El mantenimiento de un SO se clasifica según el momento de intervención y su objetivo.</p>
+
+    <div class="report-grid">
+      <div class="report-card">
+        <h3>🛡️ Mantenimiento Preventivo</h3>
+        <p>Acciones programadas para evitar fallos antes de que ocurran. Reduce el tiempo de inactividad no planificado.</p>
+        <ul>
+          <li>Actualizaciones periódicas del SO</li>
+          <li>Instalación de parches de seguridad</li>
+          <li>Limpieza de archivos temporales</li>
+          <li>Desfragmentación de disco (HDD)</li>
+          <li>Revisión de registros de eventos</li>
+          <li>Respaldos programados</li>
+          <li>Monitoreo proactivo de recursos</li>
+        </ul>
+      </div>
+      <div class="report-card">
+        <h3>🔧 Mantenimiento Correctivo</h3>
+        <p>Intervención para resolver fallos ya ocurridos. Restaura el sistema al estado operativo.</p>
+        <ul>
+          <li>Restauración de sistema desde punto de restauración</li>
+          <li>Reparación de archivos del sistema (sfc /scannow)</li>
+          <li>Reinstalación de controladores defectuosos</li>
+          <li>Recuperación desde copia de seguridad</li>
+          <li>Análisis y eliminación de malware</li>
+          <li>Corrección de errores de disco (chkdsk)</li>
+        </ul>
+      </div>
+      <div class="report-card">
+        <h3>🔄 Mantenimiento Predictivo</h3>
+        <p>Anticipa fallos mediante el análisis de tendencias y datos de rendimiento histórico.</p>
+        <ul>
+          <li>Análisis de logs de eventos del sistema</li>
+          <li>Monitoreo S.M.A.R.T. del disco duro</li>
+          <li>Alertas automáticas de umbrales</li>
+          <li>Revisión de tendencias de uso de recursos</li>
+          <li>Pruebas periódicas de hardware</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Políticas de mantenimiento -->
+    <h3 style="margin:2rem 0 1rem;font-size:1.1rem;">Políticas de mantenimiento recomendadas</h3>
+    <div class="table-wrapper">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Actividad</th>
+            <th>Frecuencia</th>
+            <th>Herramienta / Método</th>
+            <th>Aplicable en</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Instalación de actualizaciones de seguridad</strong></td>
+            <td><span class="sec-badge high">Mensual (Patch Tuesday)</span></td>
+            <td>Windows Update / WSUS</td>
+            <td>Server 2019, Win 10</td>
+          </tr>
+          <tr>
+            <td><strong>Copia de seguridad completa</strong></td>
+            <td><span class="sec-badge med">Semanal</span></td>
+            <td>Windows Server Backup / Veeam</td>
+            <td>Server 2019</td>
+          </tr>
+          <tr>
+            <td><strong>Copia de seguridad incremental</strong></td>
+            <td><span class="sec-badge high">Diaria</span></td>
+            <td>Windows Server Backup / robocopy</td>
+            <td>Server 2019, Win 10</td>
+          </tr>
+          <tr>
+            <td><strong>Revisión del visor de eventos</strong></td>
+            <td><span class="sec-badge high">Semanal</span></td>
+            <td>Event Viewer (eventvwr.msc)</td>
+            <td>Server 2019, Win 10</td>
+          </tr>
+          <tr>
+            <td><strong>Verificación de integridad del disco</strong></td>
+            <td><span class="sec-badge med">Mensual</span></td>
+            <td>chkdsk /f /r</td>
+            <td>Server 2019, Win 10</td>
+          </tr>
+          <tr>
+            <td><strong>Escaneo de malware y antivirus</strong></td>
+            <td><span class="sec-badge high">Semanal</span></td>
+            <td>Windows Defender / ESET / Sophos</td>
+            <td>Server 2019, Win 10</td>
+          </tr>
+          <tr>
+            <td><strong>Prueba de restauración de backups</strong></td>
+            <td><span class="sec-badge med">Trimestral</span></td>
+            <td>Restauración en entorno de prueba</td>
+            <td>Server 2019</td>
+          </tr>
+          <tr>
+            <td><strong>Revisión de espacio en disco</strong></td>
+            <td><span class="sec-badge high">Semanal</span></td>
+            <td>Monitor de rendimiento / PowerShell</td>
+            <td>Server 2019, Win 10</td>
+          </tr>
+          <tr>
+            <td><strong>Auditoría de cuentas de usuario</strong></td>
+            <td><span class="sec-badge med">Mensual</span></td>
+            <td>Active Directory / PowerShell</td>
+            <td>Server 2019 (AD DS)</td>
+          </tr>
+          <tr>
+            <td><strong>Crear punto de restauración</strong></td>
+            <td style="color:var(--yellow)">Antes de cambios</td>
+            <td>Protección del sistema (sysdm.cpl)</td>
+            <td>Windows 10</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Estrategias de recuperación -->
+    <h3 style="margin:2rem 0 1rem;font-size:1.1rem;">Estrategias de recuperación ante fallos</h3>
+    <div class="report-grid">
+      <div class="report-card">
+        <h3>🔁 Punto de restauración del sistema</h3>
+        <p>Permite revertir el SO a un estado anterior sin afectar archivos personales. Ideal para deshacer cambios de configuración o instalaciones problemáticas.</p>
+        <ul>
+          <li>Crear puntos antes de instalar software o drivers</li>
+          <li>Restaurar desde: Configuración → Recuperación → Abrir restauración del sistema</li>
+          <li>También accesible desde modo seguro</li>
+        </ul>
+      </div>
+      <div class="report-card">
+        <h3>💿 Imagen del sistema (System Image)</h3>
+        <p>Copia completa del sistema operativo, configuraciones y datos. Permite restaurar el sistema completo en caso de fallo grave.</p>
+        <ul>
+          <li>Panel de control → Copia de seguridad y restauración</li>
+          <li>Guardar en disco externo, NAS o red</li>
+          <li>Restaurar desde el entorno de recuperación de Windows (WRE)</li>
+        </ul>
+      </div>
+      <div class="report-card">
+        <h3>🛠️ Entorno de recuperación de Windows (WRE)</h3>
+        <p>Herramienta de recuperación integrada que arranca cuando el SO no puede iniciarse normalmente.</p>
+        <ul>
+          <li>Reparación automática de inicio</li>
+          <li>Símbolo del sistema para comandos de recuperación</li>
+          <li>Restauración del sistema</li>
+          <li>Recuperación desde imagen del sistema</li>
+          <li>Restablecer este PC (conservar o eliminar archivos)</li>
+        </ul>
+      </div>
+      <div class="report-card">
+        <h3>🌐 Active Directory Backup (Server)</h3>
+        <p>En Windows Server con AD DS, es fundamental respaldar el estado del sistema incluyendo la base de datos de Active Directory.</p>
+        <ul>
+          <li>Usar Windows Server Backup para respaldo del "System State"</li>
+          <li>Recuperación autorizada vs. no autorizada de AD</li>
+          <li>Restauración del SYSVOL y NTDS.dit</li>
+          <li>Modo de restauración de servicios de directorio (DSRM)</li>
+        </ul>
+      </div>
+      <div class="report-card">
+        <h3>☁️ Alta disponibilidad (Server)</h3>
+        <p>Estrategias para garantizar que los servicios del servidor permanezcan activos ante fallos de hardware o software.</p>
+        <ul>
+          <li>Failover Clustering (clúster de conmutación por error)</li>
+          <li>Controladores de dominio adicionales (DC secundario)</li>
+          <li>RAID para tolerancia a fallos de disco</li>
+          <li>UPS para protección ante cortes eléctricos</li>
+        </ul>
+      </div>
+      <div class="report-card">
+        <h3>🔐 Modo seguro</h3>
+        <p>Inicia Windows con controladores y servicios mínimos. Permite diagnosticar y resolver problemas que impiden el arranque normal.</p>
+        <ul>
+          <li>Acceder pulsando F8 / Shift+Reiniciar → Opciones avanzadas</li>
+          <li>Modo seguro con funciones de red</li>
+          <li>Modo seguro con símbolo del sistema</li>
+          <li>Útil para eliminar malware o drivers dañados</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Plan de recuperación ante desastres -->
+    <h3 style="margin:2rem 0 1rem;font-size:1.1rem;">Plan de recuperación ante desastres (DRP) — Pasos básicos</h3>
+    <ol class="step-list">
+      <li><strong>Identificar activos críticos</strong><span>Listar servidores, servicios y datos cuya interrupción causaría mayor impacto en la organización.</span></li>
+      <li><strong>Definir RTO y RPO</strong><span>RTO (Recovery Time Objective): tiempo máximo tolerable de inactividad. RPO (Recovery Point Objective): pérdida máxima tolerable de datos.</span></li>
+      <li><strong>Implementar backups regulares</strong><span>Seguir la regla 3-2-1: 3 copias de datos, en 2 medios diferentes, con 1 copia fuera del sitio (offsite o nube).</span></li>
+      <li><strong>Documentar procedimientos de recuperación</strong><span>Crear guías paso a paso para restaurar cada sistema o servicio crítico, accesibles sin necesidad del sistema caído.</span></li>
+      <li><strong>Probar el plan periódicamente</strong><span>Realizar simulacros de recuperación al menos una vez por trimestre. Verificar que los backups son funcionales y los tiempos de recuperación son aceptables.</span></li>
+      <li><strong>Actualizar el plan</strong><span>Revisar y actualizar el DRP después de cada cambio importante en la infraestructura (nuevos servidores, cambios de red, actualizaciones mayores).</span></li>
+    </ol>
+
+    <div class="highlight" style="margin-top:2rem;">
+      <h4>✅ Conclusión</h4>
+      <p>Una política de mantenimiento bien estructurada, combinada con estrategias robustas de recuperación, minimiza el tiempo de inactividad y el impacto de los fallos. En entornos con Windows Server, es fundamental contar con al menos un controlador de dominio secundario, backups diarios del "System State" y un plan documentado y probado de recuperación ante desastres.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <p>Tarea 2 — Políticas de Mantenimiento y Recuperación ante Fallos &nbsp;|&nbsp; Elaborado con fines académicos</p>
+</footer>
+</body>
+</html>
