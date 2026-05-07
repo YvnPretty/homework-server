@@ -298,36 +298,66 @@
   </div>
 </section>
 
-<!-- ====== WINDOWS 10 ====== -->
+<!-- ====== WINDOWS 7 ====== -->
 <section class="section" style="padding-top:0">
   <div class="container">
-    <h2 class="section-title">🪟 Parte 2 — Instalación de Windows 10 y conexión al dominio</h2>
-    <p class="section-sub">Instalación del cliente Windows 10 y unión al dominio HOTEL.CLANDESTINO</p>
+    <h2 class="section-title">🪟 Parte 2 — Instalación de Windows 7 y conexión al dominio</h2>
+    <p class="section-sub">Instalación del cliente Windows 7 y unión al dominio HOTEL.CLANDESTINO</p>
 
     <ol class="step-list">
       <li>
-        <strong>Instalación de Windows 10</strong>
-        <span>Se instaló Windows 10 en una segunda VM de VirtualBox. Tras la instalación, el sistema arrancó al escritorio mostrando el logo de Windows.</span>
-        <img class="img-evidence" src="imgs/1000000100000780000004389024447B.png" alt="Escritorio Windows 10 instalado">
-        <div class="img-caption">Evidencia: escritorio de Windows 10 recién instalado en VirtualBox.</div>
+        <strong>Preparación y arranque del instalador</strong>
+        <span>Se inició la máquina virtual de Windows 7 en VirtualBox cargando los archivos de instalación iniciales.</span>
+        <img class="img-evidence" src="imgs/win7_01.png" alt="Instalador Windows 7">
+        <div class="img-caption">Evidencia: inicio de la carga del sistema de instalación en Windows 7.</div>
       </li>
       <li>
-        <strong>Cambio de nombre y unión al dominio</strong>
-        <span>Desde las propiedades del sistema del cliente (WINVOL2), se cambió el nombre a <code>Bobsponja</code> y se inició el proceso de unión al dominio <code>HOTEL.CLANDESTINO</code>.</span>
-        <img class="img-evidence" src="imgs/1000000100000780000004385AEEE78B.png" alt="Unión al dominio Windows 10">
-        <div class="img-caption">Evidencia: propiedades del sistema del cliente — proceso de unión al dominio del servidor.</div>
+        <strong>Primer inicio y escritorio</strong>
+        <span>Una vez finalizada la instalación, el sistema arrancó mostrando el escritorio clásico de Windows 7 listo para ser configurado.</span>
+        <img class="img-evidence" src="imgs/win7_02.png" alt="Escritorio de Windows 7">
+        <div class="img-caption">Evidencia: escritorio inicial de Windows 7 recién instalado.</div>
       </li>
       <li>
-        <strong>Configuración de IP del cliente (TCP/IPv4)</strong>
-        <span>Se configuró la IP estática del cliente: <code>192.168.1.69</code>, máscara <code>255.255.255.0</code>, gateway <code>192.168.1.254</code> y DNS apuntando al servidor del dominio.</span>
-        <img class="img-evidence" src="imgs/10000001000007800000043880BA919B.png" alt="IP estática cliente Windows 10">
-        <div class="img-caption">Evidencia: configuración TCP/IPv4 del cliente con IP estática y DNS del servidor de dominio.</div>
+        <strong>Configuración de red IPv4</strong>
+        <span>Se ingresó a las propiedades del adaptador de red para configurar los parámetros TCP/IPv4 del cliente con una dirección estática dentro del mismo segmento de red del servidor.</span>
+        <img class="img-evidence" src="imgs/win7_03.png" alt="Propiedades de red en Windows 7">
+        <div class="img-caption">Evidencia: asignación de IP estática y configuración de DNS apuntando a la IP del servidor.</div>
       </li>
       <li>
-        <strong>Verificación de IPCONFIG en el cliente</strong>
-        <span>Desde el CMD del cliente Windows 10 se ejecutó <code>IPCONFIG</code> para verificar la configuración de red y confirmar la conectividad con el servidor.</span>
-        <img class="img-evidence" src="imgs/100000010000078000000438C27A1CD2.png" alt="IPCONFIG cliente">
-        <div class="img-caption">Evidencia: resultado de IPCONFIG en el cliente mostrando la configuración de red activa.</div>
+        <strong>Verificación de red con IPCONFIG</strong>
+        <span>Desde la consola CMD se ejecutó el comando <code>ipconfig</code> para confirmar que los parámetros de red se aplicaron correctamente en la interfaz local.</span>
+        <img class="img-evidence" src="imgs/win7_04.png" alt="IPCONFIG en Windows 7">
+        <div class="img-caption">Evidencia: comando ipconfig mostrando la dirección IP y puerta de enlace configuradas.</div>
+      </li>
+      <li>
+        <strong>Propiedades del sistema y cambio de nombre</strong>
+        <span>Se abrió la ventana de propiedades del sistema para modificar el nombre del equipo y prepararlo para unirlo al dominio del servidor.</span>
+        <img class="img-evidence" src="imgs/win7_05.png" alt="Propiedades del sistema">
+        <div class="img-caption">Evidencia: diálogo de Cambio de Nombre de equipo y Dominio en Windows 7.</div>
+      </li>
+      <li>
+        <strong>Introducción del dominio a unir</strong>
+        <span>Se seleccionó la opción de unir a un dominio y se ingresó el nombre de dominio raíz de nuestro servidor: <code>HOTEL.CLANDESTINO</code>.</span>
+        <img class="img-evidence" src="imgs/win7_06.png" alt="Ventana de Dominio">
+        <div class="img-caption">Evidencia: cuadro de diálogo para ingresar las credenciales del dominio.</div>
+      </li>
+      <li>
+        <strong>Ingreso de credenciales de Administrador</strong>
+        <span>Se solicitaron las credenciales del usuario Administrador del dominio del servidor para autorizar la unión del cliente Windows 7.</span>
+        <img class="img-evidence" src="imgs/win7_07.png" alt="Credenciales de Administrador">
+        <div class="img-caption">Evidencia: ventana emergente solicitando usuario y contraseña del Administrador del dominio.</div>
+      </li>
+      <li>
+        <strong>Bienvenida oficial al dominio</strong>
+        <span>El sistema se conectó exitosamente al controlador de dominio y mostró el mensaje de bienvenida oficial a <code>HOTEL.CLANDESTINO</code>.</span>
+        <img class="img-evidence" src="imgs/win7_08.png" alt="Bienvenido al dominio">
+        <div class="img-caption">Evidencia: mensaje confirmando la unión exitosa del cliente Windows 7 al dominio.</div>
+      </li>
+      <li>
+        <strong>Inicio de sesión con usuario de dominio</strong>
+        <span>Finalmente se reinició el cliente y se inició sesión de forma exitosa utilizando la cuenta de dominio creada previamente para el usuario (ej. <code>arenitaxd@HOTEL.CLANDESTINO</code>).</span>
+        <img class="img-evidence" src="imgs/win7_09.png" alt="Sesión de dominio iniciada">
+        <div class="img-caption">Evidencia: escritorio de Windows 7 con la sesión iniciada bajo el perfil del dominio de red.</div>
       </li>
     </ol>
   </div>
